@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="slid.css">
+</head>
+
+<body>
+    <header>
+        마작은 어렵지 않아요
+    </header>
+    <br><br><br><br><br><br><br>
+    <div class="slideshow-container">
+
+        <div style='border: 5px dashed black; width:150px; height:150px; background-color: aqua; height:150px' class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="./data/icon_1.png" style="width:100%">
+          <div class="text">ALWAYS</div>
+        </div>
+        
+        <div style='border: 5px dashed black; width:150px; background-color: beige; height:150px' class="mySlides fade" >
+          <div class="numbertext">2 / 3</div>
+          <img src="./data/icon_2.png" style="width:100%">
+          <div class="text">YOUR</div>
+        </div>
+        
+        <div style='border: 5px dashed black; width:150px; background-color: peachpuff; height:150px' class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="./data/icon_6.png" style="width:100%">
+          <div class="text">TURN</div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+        <br><br><br><br><br><br>
+        <footer>
+            <div style='border: 3px dashed blue; width:500px; height:50px'>
+                <a class="text1" href='https://mahjongsoul.yo-star.com/' title='네이버' id='mahjang'>※작혼 홈페이지 링크※</a> 
+            </div>
+            <button onclick="fontChg()">폰트 체인지</button>
+        </footer>
+        
+        <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+
+        function fontChg(){
+        var mahjang = document.querySelector('.text1')
+        mahjang.classList.toggle('list1')
+        }
+        </script>
+    
+</body>
+</html>
